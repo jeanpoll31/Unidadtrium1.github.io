@@ -1,0 +1,227 @@
+ 
+  body {--color_principal_azul: #5454fe;
+    --color_fondo_gradiente: radial-gradient(circle, #bbb , #32197d);
+    --color_fondo: #32197d;
+    --footer_color: #111;
+    font-family: 'ubunto';
+    view-timeline: --caja;
+    min-height: 100vh;
+    background-image: var(--color_fondo_gradiente);   
+    display: flex;
+    flex-direction: column;
+    margin: 0%;
+  }
+ 
+ 
+.manual-captura img {
+    /* Esto asegura que la imagen ocupe todo el ancho y alto del contenedor: */
+    width: 100%;
+    height: 100%; /* CLAVE: Fuerza la altura a ser igual a la del padre (.manual-captura) */
+    
+    /* Esta propiedad es VITAL para evitar que la imagen se distorsione. 
+       Asegura que la imagen cubra el área manteniendo su proporción y recortando los bordes si es necesario. */
+    object-fit: cover; 
+    
+    display: flex;
+    background-color: #f9f9f9;
+}
+
+ 
+ .manual-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-family: Arial, sans-serif; /* Un tipo de letra legible para el manual */
+        }
+
+        .manual-container h1,
+        .manual-container h2,
+        .manual-container h3,
+        .manual-container h4 {
+            color: #191970; /* Color principal de tu sitio */
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+         .manual-container h3 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+         }
+
+        .manual-container h1 {
+            text-align: center;
+            font-size: 2.5em;
+            border-bottom: none;
+        }
+
+        .manual-container p, 
+        .manual-container li {
+            line-height: 1.7;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        /* Estilo para el índice (basado en el PDF) */
+        .manual-indice ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .manual-indice > ul > li {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .manual-indice ul ul {
+            padding-left: 30px;
+            margin-top: 10px;
+        }
+        .manual-indice ul ul li {
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+        .manual-indice a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .manual-indice a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para las capturas de pantalla */
+        .manual-captura {
+            border: 4px solid #ddd;
+            
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            overflow: hidden; /* Para que el borde redondeado contenga la imagen */
+        }
+
+        .manual-captura img {
+            width: 100%;
+            display: block;
+            background-color: #f9f9f9;
+        }
+
+        /* Marcador de posición para que insertes tus capturas */
+        .placeholder-captura {
+            width: 100%;
+            height: 400px;
+            background-color: #f0f4f8;
+            border: 2px dashed #b0c4de;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #667;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 8px;
+            box-sizing: border-box; /* Importante para que el padding y borde no rompan el layout */
+        }
+
+        /* Descripciones de las capturas (como en el PDF) */
+        .manual-descripcion {
+            padding: 30px;
+            background-color: #fafafa;
+            border-top: 1px solid #ddd;
+        }
+        .manual-descripcion ol {
+            padding-left: 20px;
+            margin-right: 30px;
+            margin: 0;
+        }
+        .manual-descripcion li {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        /* Separador de secciones */
+        hr.manual-divider {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(25, 25, 112, 0.5), rgba(0, 0, 0, 0));
+            margin-top: 50px;
+        }
+
+/* style.css (Asegúrate de que .manual-captura esté así) */
+
+.manual-captura {
+    /* ... otras propiedades (como height: 300px) ... */
+    
+    /* PROPIEDAD CLAVE para desplazamiento: */
+    overflow: hidden; 
+    height: auto;
+    
+    /* El cursor cambia para indicar que se puede mover el contenido */
+    cursor: zoom-in; 
+    
+    /* Opcional: mejora la experiencia en algunos navegadores */
+    scroll-behavior: smooth;
+    
+    /* Esto es importante para el efecto de scroll en la imagen,
+       asegúrate de que no tenga un 'display: flex' conflictivo si lo usaste antes */
+    display: flex; 
+}
+
+/* Estilo al pasar el ratón para indicar que se puede 'agarrar' y mover */
+.manual-captura:hover {
+    cursor: default;
+}
+
+/* Ajuste de la imagen dentro de la captura */
+.manual-captura img {
+    width: 100%;
+    height: auto; 
+    object-fit: contain;
+    display: block;
+    transition: none; /* Transición suave para futuros efectos */
+    /* Remueve object-fit: cover si quieres ver el scroll, ya que 'cover' puede cortar demasiado */
+}
+
+
+/* Estilos del Modal (Zoom de Imagen) */
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    padding-top: 50px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite desplazamiento si la imagen es muy grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo semi-transparente y oscuro */
+}
+
+.modal-content {
+    margin: auto;
+    display: flex;
+    width: 90%;
+    max-width: 1200px; /* Tamaño máximo para el zoom */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}

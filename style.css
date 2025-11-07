@@ -1,0 +1,357 @@
+*{
+    box-sizing: border-box;
+}
+
+body ,h1,h2,h3,h4,h5,p,div,ul,li{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    --color_principal_azul: #5454fe;
+    --color_fondo_gradiente: radial-gradient(circle, #bbb , #32197d);
+    --color_fondo: #32197d;
+    --footer_color: #111;
+    font-family: 'ubunto';
+}
+
+@font-face {
+    font-family: 'ubunto';
+    src: url(Ubuntu/Ubuntu-BoldItalic.ttf);
+    src: url(Ubuntu/Ubuntu-Medium.ttf);
+    src: url(Ubuntu/Ubuntu-Italic.ttf);
+    src: url(Ubuntu/Ubuntu-Regular.ttf);
+}
+
+/* SECCIÓN DEL HEADER */
+
+.header{
+    width: 100dvw;
+    background-color: var(--color_principal_azul);
+    position: fixed;
+    box-shadow: 0 0 25px #020202;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.25rem;
+    z-index: 100;
+    animation: desaparecer;
+    animation-timeline: scroll(root);
+}
+
+.titulo__principal{
+    font-size: 2rem;
+    text-shadow: 2px 2px 10px #000;
+    /* order: 1; */
+    margin-left: 1.563rem;
+    animation: desaparecer;
+    animation-timeline: scroll(root);
+}
+
+.gradiente{
+    background-image: linear-gradient(to right , #06005e, #c0f );
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+}
+
+.enlace__principal{
+    text-decoration: none;
+    color: #fff;
+}
+
+.item{
+    list-style: none;
+    /* margin-top: 1.25rem; */
+    /* margin-bottom: 0.625rem; */
+    font-size: .9rem;
+    /* border-bottom: 1px solid #2a3075; */
+    box-shadow: 0 1px 3px #0002;
+    padding: 0.625rem;
+}
+
+.nav__barra{
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menu__boton{
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+    padding: 0.625rem;
+    z-index: 100;
+    display: none;
+}
+
+.lista__navegador{
+    display: flex;
+    background-color: var(--color_principal_azul);
+    /* width: 13.75rem; */
+    /* box-shadow: 0 8px 16px  #0002; */
+    padding: .625rem;
+    /* z-index: 99; */
+    transition: transform 0.3s ease-in-out;
+}
+
+.enlace{
+    background-color: var(--color_principal_azul);
+    border-radius: 0;
+    text-decoration: none;
+    padding: .625rem;
+    color: #fff;
+    transition: background-color .5s , border-radius .5s;
+    display: block;
+}
+
+.enlace:hover{
+    background-color: #5d6afe;
+    border-radius: 0.313rem;
+}
+
+.item:active .enlace {
+    background-color: #5d6afe; 
+    border-radius: 0.313rem;
+    font-weight: bold;
+}
+
+/* SECCIÓN DEL CONTENIDO PRINCIPAL */
+
+.main{
+    height: 100dvh;
+    background-image: var(--color_fondo_gradiente);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+    width: 100%;
+    color: #fff;
+}
+
+.main__contenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 56.25rem;
+    margin: 0 auto;
+}
+
+
+.titulo{
+    font-size: 3rem;
+    margin-bottom: 1.25rem;
+}
+
+.contenido{
+    width: 100%;
+}
+
+.texto{
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 3.125rem;
+}
+
+.texto a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.texto a:hover{
+    color: var(--footer_color);
+}
+
+.titulo , .texto{
+    filter: drop-shadow(0 0 10px #000);
+}
+
+.logo{
+    width: fit-content;
+    height: 350px;
+}
+
+
+.texto,.titulo,.logo{
+    animation: aparecer 3s ease .9 both;
+}
+
+/* TEXTO INTRODUCCTORIO */
+
+.introduccion{
+    padding: 1.25rem 0 5rem 0;
+    width: 100%;
+    background: radial-gradient(circle, #333, #666, #999, #3c2a72);
+    color: #000;
+}
+
+.edificio{
+    padding: 12.5rem;
+    background-image: url(imagenes/imagen_edificio.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 40px #000;
+    opacity: .7;
+}
+
+.contenido__intro{
+    display: flex;
+    max-width: 50rem;
+    padding: 5rem;
+    margin: auto;
+    margin-top: 1.25rem;
+    border-radius: .75rem;
+    box-shadow: 0 0 40px #444;
+    background-color: #ccc;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.subtitulos{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2.7rem;
+}
+
+.sub1{
+    font-size: 1.8rem;
+    margin-top: 1.8rem;
+}
+
+.lista__especialidades{
+    list-style: none;
+    font-weight: 100;
+}
+
+.imagen{
+    width: 31.25rem;
+}
+
+.img_perso{
+    height: 296px;
+}
+
+.texto__intro{
+    margin-bottom: 1.875rem;
+    font-weight: 100;
+}
+
+/* SECCIÓN DEL FOOTER */
+
+.footer{
+    display: flex;
+    width: 100%;
+    background-color: var(--footer_color);
+    height: 3.75rem;
+    color: #aaa;
+    justify-content:center;
+    align-items:center;
+    border-top: 1px solid #666;
+    box-shadow: 0 0 12px #000;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.footer__contenedor{
+    width: 100%; 
+    max-width: 50rem;
+    padding: 0 1.25rem; 
+}
+
+/* MEDIA QUERIES Y ANIMACIONES */
+
+@media (max-width: 48.063rem) {
+    .logo{
+        max-width: 20.2rem;
+    }
+
+    .titulo__principal{
+        font-size: 1.6rem;
+        margin-left: 0;
+    }
+
+    .menu__oculto {
+        transform: translateX(100%);
+    }
+
+    .lista__navegador{
+        flex-direction: column;
+        position: fixed;
+        top: 3.125rem;
+        height: 100dvh;
+        width: 13.75rem;
+        z-index: 99;
+        box-shadow: 0 8px 16px  #0002;
+        right: 0;
+    }
+
+.item{
+    /* margin-top: 1.25rem; */
+    margin-bottom: 0.625rem;
+    border-bottom: 1px solid #2a3075;
+}
+
+    .menu__boton{
+        background: transparent;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #fff;
+        padding: 0.625rem;
+        z-index: 100;
+        display: block;
+    }
+    .footer{
+        font-size: .6rem;
+    }
+
+    .texto{
+        font-weight:100;
+        font-size: 1rem;
+    }
+    .titulo{
+        font-size: 2.4rem;
+    }
+    
+    h3{
+        font-size: 1.8rem;
+        line-height: 2rem;
+    }
+    .imagen{
+        width: 18.75rem;
+    }
+    /* .menu__boton{
+        font-size: 1.7rem;
+    } */
+    .edificio{
+        padding: 6.25rem;
+    }
+}
+
+@keyframes aparecer {
+    0%{
+        transform: translateY(-100%);
+    }
+
+    100%{
+        transform: translateY(20%);
+    }
+}
+
+@keyframes desaparecer {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0.6;
+    }
+}
